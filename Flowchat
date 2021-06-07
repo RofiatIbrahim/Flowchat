@@ -1,0 +1,12 @@
+# hide
+%load_ext autoreload
+%autoreload 2
+from flowchatbot import *
+
+bot = TextAdapter(
+            Composite('key1',
+                Segment('key2', '', 'Hello World!')
+                           ))
+bot.r.flushall() # clear all old sessions
+
+print(bot.respond('hi', 0)) # 0 is session id, used as key in redis
